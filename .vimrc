@@ -57,6 +57,7 @@ set t_Co=256
 set gfn=Courier:h12              " Set font
 set background=dark
 colorscheme lucius
+:highlight LineNr ctermfg=white
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text, tabs, and indents
