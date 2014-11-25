@@ -15,6 +15,7 @@ Plugin 'bling/vim-airline'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -32,6 +33,19 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup
+  let g:grep_cmd_opts = '--line-numbers --noheading'
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -43,13 +57,22 @@ set ignorecase                  " Ignore case when searching
 set smartcase                   " When searching, be smart about cases
 set showmatch                   " Set matching brackets when text inidicator is over them
 set number                      " Show line numbers
-"set mouse=a                     " Enable mouse for those dark days
+set laststatus=2  " Always display the status line
 
 set incsearch
 set nowrap
 
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set ruler         " show the cursor position all the time
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;*.pyc;vendor/**;coverage/**;tmp/**;rdoc/**"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors and Fonts
+" Colors, Fonts, and Display
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on                       " syntax highlighting
 set hlsearch                    " Highlight search results
@@ -63,10 +86,10 @@ highlight LineNr ctermfg=white
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text, tabs, and indents
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set expandtab                   " Use taps instead of spaces
-set tabstop=4                   " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4                " number of spaces to use for auto indent
+set expandtab                   " Use tabs instead of spaces
+set tabstop=2                   " use 4 spaces to represent tab
+set softtabstop=2
+set shiftwidth=2                " number of spaces to use for auto indent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Bindings
@@ -74,6 +97,9 @@ set shiftwidth=4                " number of spaces to use for auto indent
 " Toggle NerdTree
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :WatchForChanges<CR>
+
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
 
 " CtrlP mappings
 let g:ctrlp_map = '<c-p>'
@@ -96,6 +122,10 @@ set noswapfile
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 
 
