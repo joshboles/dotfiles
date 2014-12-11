@@ -57,7 +57,7 @@ set ignorecase                  " Ignore case when searching
 set smartcase                   " When searching, be smart about cases
 set showmatch                   " Set matching brackets when text inidicator is over them
 set number                      " Show line numbers
-set laststatus=2  " Always display the status line
+set laststatus=2                " Always display the status line
 
 set incsearch
 set nowrap
@@ -86,10 +86,11 @@ highlight LineNr ctermfg=white
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text, tabs, and indents
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set expandtab                   " Use tabs instead of spaces
-set tabstop=2                   " use 4 spaces to represent tab
+set expandtab
+set tabstop=2                   " use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2                " number of spaces to use for auto indent
+set smartindent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Bindings
@@ -126,6 +127,9 @@ let g:syntastic_enable_signs=1
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" Ignore certain files in Nerdtree
+let NERDTreeIgnore = ['\.pyc$']
 
 
 
