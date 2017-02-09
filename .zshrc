@@ -1,7 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-source ~/antigen.zsh
+export PATH=/usr/local/sbin:$PATH
+
 source /usr/local/bin/virtualenvwrapper.sh
+source ~/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -24,14 +26,10 @@ antigen apply
 plugins=(git)
 
 # User configuration
-# export PATH="/Users/joshboles/.rvm/gems/ruby-2.0.0-p451/bin:/Users/joshboles/.rvm/gems/ruby-2.0.0-p451@global/bin:/Users/joshboles/.rvm/rubies/ruby-2.0.0-p451/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/joshboles/.rvm/bin:/Users/joshboles/Mobile/android-sdk/platform-tools:/Users/joshboles/Mobile/android-sdk/tools:/usr/local/sbin"
+# export PATH="/Users/josh/.rvm/gems/ruby-2.0.0-p451/bin:/Users/josh/.rvm/gems/ruby-2.0.0-p451@global/bin:/Users/josh/.rvm/rubies/ruby-2.0.0-p451/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/josh/.rvm/bin:/Users/josh/Mobile/android-sdk/platform-tools:/Users/josh/Mobile/android-sdk/tools:/usr/local/sbin"
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='mvim'
- fi
+export EDITOR='vim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -39,8 +37,13 @@ plugins=(git)
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias chrome='open Google\ Chrome --args --disable-web-security'
-alias runserv='python manage.py runserver 0.0.0.0:8000'
+alias runserv='python manage.py runserver 0.0.0.0:8000 --insecure'
 alias subl='subl .'
+alias tma='tmux attach'
+alias fe='node Website.Tests/WebViewer/server.js'
+alias serve='python -m SimpleHTTPServer'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
