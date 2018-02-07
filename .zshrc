@@ -44,6 +44,11 @@ alias tma='tmux attach'
 alias fe='node Website.Tests/WebViewer/server.js'
 alias serve='python -m SimpleHTTPServer'
 
+gitignore() {
+	curl -O https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore 
+	mv $1.gitignore .gitignore
+}
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
