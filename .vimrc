@@ -27,8 +27,11 @@ call plug#end()
 " Set color
 colors deus
 
+" Set numbers
+set number
+
 " Map NERDTree to keybind
-map <F2> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " Open NERDTree if no files present
 autocmd StdinReadPre * let s:std_in=1
@@ -47,14 +50,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Get ready for some Python
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent fileformat=unix
 
 " Get ready for everything else
 au BufNewFile,BufRead *.js, *.html, *.css
