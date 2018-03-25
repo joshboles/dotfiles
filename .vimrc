@@ -27,8 +27,9 @@ call plug#end()
 " Set color
 colors deus
 
-" Set numbers
+" Set defaults
 set number
+set wrap!
 
 " Map NERDTree to keybind
 map <C-n> :NERDTreeToggle<CR>
