@@ -2,7 +2,12 @@
 export ZSH=$HOME/.oh-my-zsh
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
 source /usr/local/bin/virtualenvwrapper.sh
+
+export VIRTUALENV_PYTHON=/usr/local/bin/python3
+
 source ~/antigen.zsh
 
 antigen use oh-my-zsh
@@ -37,13 +42,10 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias python='python3'
 alias chrome='open Google\ Chrome --args --disable-web-security'
 alias runserv='python manage.py runserver 0.0.0.0:8000 --insecure'
 alias subl='subl .'
 alias tma='tmux attach'
-alias fe='node Website.Tests/WebViewer/server.js'
-alias serve='python -m SimpleHTTPServer'
 alias prp="pipenv run python"
 
 gitignore() {

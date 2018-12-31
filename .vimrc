@@ -20,12 +20,13 @@ Plug 'ajmwagar/vim-deus'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()
 
 " Set color
-colors deus
+colorscheme angr
 
 " Set defaults
 set number
@@ -33,6 +34,7 @@ set wrap!
 
 " Map NERDTree to keybind
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Open NERDTree if no files present
 autocmd StdinReadPre * let s:std_in=1
