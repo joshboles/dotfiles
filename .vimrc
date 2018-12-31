@@ -21,6 +21,7 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
