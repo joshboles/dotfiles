@@ -57,7 +57,7 @@ nnoremap <C-H> <C-W><C-H>
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent fileformat=unix
 
 " Get ready for everything else
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
