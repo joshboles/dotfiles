@@ -16,18 +16,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ajmwagar/vim-deus'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'posva/vim-vue'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-python/python-syntax'
+Plug 'leafoftree/vim-vue-plugin'
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
 
 " Set color
-colorscheme angr
+colorscheme apprentice
+
+" Try to set Python syntax highlighting?
+let g:python_highlight_all = 1
 
 " Set defaults
 set number
@@ -38,8 +44,8 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " Ignore files that we don't want shown in NERDTree or CtrlP
-let NERDTreeIgnore=['\.pyc$', 'node_modules', '\.vscode$','\.idea$']
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let NERDTreeIgnore=['\.pyc$', 'node_modules', '\.vscode$','\.idea$', '\.swp$', '\.swo$']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|pyc\|swp\|swo'
 
 " Open NERDTree if no files present
 autocmd StdinReadPre * let s:std_in=1
@@ -66,3 +72,13 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 
 
 " Get ready for everything else
 au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2 softtabstop=2 shiftwidth=2
+
+" Enable code folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable vim-airline listing of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
